@@ -63,7 +63,7 @@ def home():
     )
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'uploads/'
+app.config['UPLOAD_FOLDER'] = 'uploads/' # update accordingly to determine where files are saved
 app.secret_key = 'supersecretkey'
 
 # Ensure the upload folder exists
@@ -88,15 +88,27 @@ def upload_file():
     
     if file:
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-        file.save(file_path)
+        #file.save(file_path) # Uncomment to enable file saving
         flash(f'File {file.filename} uploaded successfully!')
         #create saved file object
-        saved_file = SavedFile(file_id= "HAI_" + dt.now(), name="placeholder", path=file_path,datetime_uploaded=dt.now())
-        selected_option = request.form.get('options')
-        #TODO determine which model has been selected ^ 
+       # saved_file = SavedFile(file_id= "HAI_" + dt.now(), name="placeholder", path=file_path,datetime_uploaded=dt.now())
+        #selected_option = request.form.get('options')
+        
+        upload_data = file.read()
 
-        #TODO - add this to the database
-        return redirect('/')
+        # Decode the bytes to a string
+        upload_data = upload_data.decode('utf-8')
+
+        if request.form.get('options') == "single":
+            input = [sentence.strip() for sentence in upload_data.split('\n') if sentence.strip()] # split the input into an array
+        else:
+            input = upload_data
+
+        result = run_model(input, request.form.get('options'))
+
+    # passing result from model to result page
+    return render_template('result.html', output=result)
+        #return redirect('/')
 
 # this route is used to take manually entered date and save it into a txt file. The file is uploaded into the project 'uploads' folder. The file will be stored on the server
 # and the necessary data related to the file such as filename, id etc. in the database. 
