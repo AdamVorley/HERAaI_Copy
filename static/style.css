@@ -1,0 +1,133 @@
+/* General Page Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styling */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Headings */
+h1, h6 {
+    color: #002855; /* Navy color */
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h6 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+p
+{
+    text-align: center;
+}
+
+/* Form Labels */
+.form-label {
+    font-weight: 500;
+    color: #002855;
+}
+
+/* Input Styling */
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+textarea.form-control {
+    resize: none;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #004080; /* Dark Navy */
+    border-color: #004080;
+}
+
+.btn-outline-primary {
+    color: #004080;
+    border-color: #004080;
+}
+
+.btn-outline-primary:hover {
+    background-color: #004080;
+    color: white;
+}
+
+/* Input/Upload Form Button Group */
+.btn-check:focus + .btn-outline-primary {
+    box-shadow: 0 0 0 0.25rem rgba(0, 64, 128, 0.25);
+}
+
+/* Form Styling */
+form {
+    margin-top: 20px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    background-color: #004080;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #002855;
+}
+
+/* Links */
+a {
+    color: #004080;
+    text-decoration: none;
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Page 2 (Model Output) Specific */
+.model-output-container {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+
+
+p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Footer Link */
+a[href="/"] {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
